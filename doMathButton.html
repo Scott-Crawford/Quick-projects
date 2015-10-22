@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+ 	<title>Do the Math Button</title>
+
+	<script type = "text/JavaScript">
+		//Function that asks the user to enter three numbers and then finds the smallest. Checks if value entered is a number
+		function doMath(){
+			//prompts the user for the their numbers and checks if the values are a valid number. If not, it asks them to enter them again
+			var firstNumber=prompt("Enter your first number.");
+			while(isNaN(firstNumber)||!firstNumber){
+				firstNumber=prompt(firstNumber+" is not a number. Enter a number!");
+			}
+			var secondNumber=prompt("Enter your second number.");
+			while(isNaN(secondNumber)||!secondNumber){
+				secondNumber=prompt(secondNumber+" is not a number. Enter a number!");
+			}
+			var thirdNumber=prompt("Enter your third number.");
+			while(isNaN(thirdNumber)||!thirdNumber){
+				thirdNumber=prompt(thirdNumber+" is not a number. Enter a number!");
+			}
+			var minimumNumber;
+			//checks if the first number is smaller than the second number, and assigns the smallest to minimumNumber
+			if(Number(firstNumber)<=Number(secondNumber)){
+				minimumNumber=firstNumber;
+			}
+			else{
+				minimumNumber=secondNumber;
+			}
+			//checks if the third number is smaller than minimumNumber. If true, it changes minimumNumber
+			if(Number(thirdNumber)<=Number(minimumNumber)){
+				minimumNumber=thirdNumber;
+			}
+			//alert to tell tell the lowest number
+			alert("Your lowest number is "+minimumNumber);
+			//prints out something fun and then the lowest number. Also creates another button to do it again
+			document.write('<pre>');
+			document.writeln("They did the math!");
+			document.writeln("They did the monster math!");
+			document.writeln("It was a graphing smash!");
+			document.writeln("Your lowest number is "+minimumNumber+"!");
+			document.writeln("<button type=button onclick = doMath()>Do more math!</button>");
+		}
+	</script>
+</head>
+
+<body>
+	<!--Creates a button that calls doMath-->
+	<button type="button" onclick = "doMath()">Do the Math</button>
+
+</body>
+
+</html>

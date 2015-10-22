@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+ 	<title>Test Scores</title>
+
+	<script type = "text/JavaScript">
+		//Function that takes an array and determines the number of each letter grade within it. Also calculates the average score.
+		function groupScores(scoreList){
+			//A variable for each letter grade and an average
+			var allAGrades=0;
+			var allBGrades=0;
+			var allCGrades=0;
+			var allDGrades=0;
+			var allFGrades=0;
+			var averageGrade=0;
+			//for loop to determine where to place each number
+			for(i=0; i<scoreList.length; i++){
+				if(Number(scoreList[i])>=90){
+					allAGrades++;
+				}
+				else if(Number(scoreList[i])>=80){
+					allBGrades++;
+				}
+				else if(Number(scoreList[i])>=70){
+					allCGrades++;
+				}
+				else if(Number(scoreList[i])>=60){
+					allDGrades++;
+				}
+				else{
+					allFGrades++;
+				}
+				averageGrade+=scoreList[i];
+			}
+			//Calculates the average and then prints the sorted grades and the average to the document
+			averageGrade=averageGrade/scoreList.length;
+			document.write("<pre>");
+			document.writeln("There are "+allAGrades+" A's, "+allBGrades+" B's, "+allCGrades+" C's, "+allDGrades+" D's, and "+allFGrades+" F's.");
+			document.writeln("The average test score is "+averageGrade);
+		}
+		
+		//Function to create an array of scores and then call a function to sort them
+		function scoreArray(){
+			//creates the array of scores
+			var scores=[60, 70, 99, 82, 77, 100, 75, 88, 100, 75];
+			//Calls groupScores using the array
+			groupScores(scores);	
+		}
+		
+	</script>
+</head>
+
+<body>
+	<!--Creates a button that calls the function scoreArray-->
+	<button type="button" onclick="scoreArray()">Click for test scores</button>
+</body>
+</html>
